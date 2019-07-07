@@ -7,20 +7,24 @@ class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-			/*
-      email: 'user@jscsshtmlfun.github.io',
+      email: 'dummy@us.er',
       password: 'fR58fT}F@)Mc*E"S',
-			*/
-      email: '',
-      password: '',
       loading: false,
     };
+    this.refEmail = React.createRef();
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
     this.handleResetPassword = this.handleResetPassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearForm = this.clearForm.bind(this);
+  }
+
+  clearForm(e) {
+    this.setState({email: '', password: ''});
+    this.refEmail.current.focus();
+    e.preventDefault();
   }
 
   handleEmailChange(e) {
@@ -78,43 +82,51 @@ class SignIn extends React.Component {
 
   render() {
     return (
-			<div className="SignIn text-center">
-				<form className="form-signin" onSubmit={this.handleSubmit}>
-					<h1 className="h3 mb-3 font-weight-normal">
-						Welcome
-					</h1>
-					<hr/>
-					<input
-						className="form-control"
-						value={this.state.email}
-						onChange={this.handleEmailChange}
-						type="email"
-						placeholder="email"
-						autoFocus
-						required
-					/>
-					<input
-						className="form-control"
-						value={this.state.password}
-						onChange={this.handlePasswordChange}
-						type="password"
-						placeholder="password"
-						required
-					/>
-					<button className="btn btn-primary btn-block" onClick={this.handleSignIn}>
-						Sign In
-					</button>
-					<br/>
-					<button className="btn btn-secondary" onClick={this.handleSignUp}>
-						Sign Up
-					</button>
-					&nbsp;&nbsp;&nbsp;
-					<button className="btn btn-light" onClick={this.handleResetPassword}>
-						Reset Password
-					</button>
-					{this.state.loading && <Loading/>}
-				</form>
-			</div>
+      <div className="SignIn text-center">
+        <form className="form-signin" onSubmit={this.handleSubmit}>
+          <h1 className="h3 mb-3 font-weight-normal">
+            Welcome
+            &nbsp;
+            <button
+              onClick={this.clearForm}
+              className="btn btn-outline-secondary"
+            >
+              New
+            </button>
+          </h1>
+          <hr/>
+          <input
+            className="form-control"
+            value={this.state.email}
+            onChange={this.handleEmailChange}
+            ref={this.refEmail}
+            type="email"
+            placeholder="email"
+            autoFocus
+            required
+          />
+          <input
+            className="form-control"
+            value={this.state.password}
+            onChange={this.handlePasswordChange}
+            type="password"
+            placeholder="password"
+            required
+          />
+          <button className="btn btn-primary btn-block" onClick={this.handleSignIn}>
+            Sign In
+          </button>
+          <br/>
+          <button className="btn btn-secondary" onClick={this.handleSignUp}>
+            Sign Up
+          </button>
+          &nbsp;&nbsp;&nbsp;
+          <button className="btn btn-light" onClick={this.handleResetPassword}>
+            Reset Password
+          </button>
+          {this.state.loading && <Loading/>}
+        </form>
+      </div>
     );
   }
 }
