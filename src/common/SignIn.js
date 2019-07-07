@@ -43,7 +43,6 @@ class SignIn extends React.Component {
 
   catchError(error) {
     alert(error.message);
-    console.log(error);
     this.setState({loading: false});
   }
 
@@ -87,12 +86,13 @@ class SignIn extends React.Component {
           <h1 className="h3 mb-3 font-weight-normal">
             Welcome
             &nbsp;
-            <button
+            <a
+              href="#/"
               onClick={this.clearForm}
               className="btn btn-outline-secondary"
             >
               New
-            </button>
+            </a>
           </h1>
           <hr/>
           <input
