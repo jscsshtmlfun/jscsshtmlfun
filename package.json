@@ -4,8 +4,12 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "cropperjs": "^1.5.2",
+    "croppie": "^2.6.4",
     "firebase": "^6.2.4",
     "gh-pages": "^2.0.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"

@@ -2,6 +2,7 @@ import React from 'react';
 import './SignIn.css';
 import Loading from './Loading';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
 
 class SignIn extends React.Component {
   constructor(props) {
