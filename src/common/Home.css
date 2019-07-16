@@ -1,0 +1,6 @@
+.Home .Home-user-photo {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+}
